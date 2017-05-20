@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require "minitest/spec"
 
-require "./lib/lucio.rb"
+require "./lib/boombox.rb"
 
 class MiniTest::Spec
   class << self
