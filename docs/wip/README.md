@@ -12,7 +12,7 @@ First install the gem by running:
 
 or, even better, by adding it to your `Gemfile`:
 ```
-gem 'boombox' ~> "0.0.1"
+gem 'boombox' ~> "0.0.3"
 ```
 
 Now use it in your code:
