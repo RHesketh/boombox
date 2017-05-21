@@ -69,13 +69,19 @@ module Boombox
         end
 
         describe "#clear_bytes" do
-          it "Gets rid of everything in the bytes array and resets it to an empty array" do
-            frame = Frame.new
-            frame << [0xFF,0xFB]
+          before do
+            @frame = Frame.new
+            @frame << [0xFF,0xFB]
 
-            frame.clear_bytes
+            @cleared = @frame.clear_bytes
+          end
 
-            assert_equal [], frame.bytes
+          it "Gets rid of everything in the bytes array" do
+            assert_equal [], @frame.bytes
+          end
+
+          it "Returns the number of bytes cleared" do
+            assert_equal 2, @cleared
           end
         end
       end

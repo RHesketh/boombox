@@ -25,7 +25,10 @@ module Boombox
       end
 
       def clear_bytes
+        removed = @bytes.count
         @bytes = []
+
+        removed
       end
     end
   end
