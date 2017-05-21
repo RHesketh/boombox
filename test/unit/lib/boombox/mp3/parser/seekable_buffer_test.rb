@@ -2,11 +2,11 @@ require "./test/test_helper"
 
 module Boombox
   module MP3
-    describe Parser::Buffer do
+    describe Parser::SeekableBuffer do
       describe "#initialize(io_stream)" do
         before do
           mock_io = ("IO")
-          @buffer = Parser::Buffer.new(mock_io)
+          @buffer = Parser::SeekableBuffer.new(mock_io)
         end
 
         it "Sets the frame_marker to 0 by default" do
@@ -20,8 +20,8 @@ module Boombox
 
       describe "Object Attributes" do
         it "Should have the following attributes" do
-          assert Parser::Buffer.instance_methods.include? :frame_marker
-          assert Parser::Buffer.instance_methods.include? :pos
+          assert Parser::SeekableBuffer.instance_methods.include? :frame_marker
+          assert Parser::SeekableBuffer.instance_methods.include? :pos
         end
       end
 
@@ -30,7 +30,7 @@ module Boombox
           context "Reading a single byte" do
             before do
               file = StringIO.new("A")
-              @buffer = Parser::Buffer.new(file)
+              @buffer = Parser::SeekableBuffer.new(file)
               @output = @buffer.read
             end
 
@@ -52,7 +52,7 @@ module Boombox
           context "Reading multiple bytes" do
             before do
               file = StringIO.new("ABCDE")
-              @buffer = Parser::Buffer.new(file)
+              @buffer = Parser::SeekableBuffer.new(file)
               @output = @buffer.read(3)
             end
 
@@ -75,7 +75,7 @@ module Boombox
         describe "#advance" do
           before do
             file = StringIO.new("ABCDE")
-            @buffer = Parser::Buffer.new(file)
+            @buffer = Parser::SeekableBuffer.new(file)
             @output = @buffer.read(3)
           end
 
@@ -83,7 +83,7 @@ module Boombox
             old_frame_marker = @buffer.frame_marker
             refute_equal @buffer.pos, @buffer.frame_marker  # Confidence check
 
-            @buffer.advance
+            @buffer.advance_marker
 
             assert_equal @buffer.pos, @buffer.frame_marker
             refute_equal old_frame_marker, @buffer.frame_marker
@@ -93,7 +93,7 @@ module Boombox
         describe "#reset" do
           before do
             file = StringIO.new("ABCDE")
-            @buffer = Parser::Buffer.new(file)
+            @buffer = Parser::SeekableBuffer.new(file)
             @output = @buffer.read(3)
           end
 
@@ -101,7 +101,7 @@ module Boombox
             old_pos = @buffer.pos
             refute_equal @buffer.pos, @buffer.frame_marker  # Confidence check
 
-            @buffer.reset
+            @buffer.reset_position
 
             assert_equal @buffer.pos, @buffer.frame_marker
             refute_equal old_pos, @buffer.pos
@@ -112,7 +112,7 @@ module Boombox
           context "When there is still data to be read" do
             before do
               file = StringIO.new("A")
-              @buffer = Parser::Buffer.new(file)
+              @buffer = Parser::SeekableBuffer.new(file)
             end
 
             it "Returns false" do
@@ -123,7 +123,7 @@ module Boombox
           context "When there is no more data to be read" do
             before do
               file = StringIO.new("A")
-              @buffer = Parser::Buffer.new(file)
+              @buffer = Parser::SeekableBuffer.new(file)
               @buffer.read
             end
 

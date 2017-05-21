@@ -1,7 +1,7 @@
 module Boombox
   module MP3
     class Parser
-      class Buffer
+      class SeekableBuffer
         attr_reader :frame_marker
         def pos; @stream.pos; end
 
@@ -14,11 +14,11 @@ module Boombox
           @stream.read(number_of_bytes).bytes
         end
 
-        def advance
+        def advance_marker
           @frame_marker = @stream.pos
         end
 
-        def reset
+        def reset_position
           @stream.pos = @frame_marker
         end
 
