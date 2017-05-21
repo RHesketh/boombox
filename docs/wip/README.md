@@ -34,7 +34,7 @@ server.play("folder_of_mp3s/", shuffle: true)
 ```
 
 ## Documentation
-More information about Boombox's options can be found in the documentation, [here](#).
+More information about Boombox's options can be found in the documentation [here](#).
 
 ## Tests
 The plugin has unit and integration tests. To run them:
