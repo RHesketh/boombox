@@ -1,7 +1,13 @@
 require "minitest/autorun"
 require "minitest/spec"
+require "minitest/unit"
 
 require "./lib/boombox.rb"
+
+require 'minitest/reporters'
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
+
 
 class MiniTest::Spec
   class << self
