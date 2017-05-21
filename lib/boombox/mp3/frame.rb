@@ -24,6 +24,10 @@ module Boombox
         return false
       end
 
+      def byte_length
+        Header.frame_length_in_bytes(header_bytes)
+      end
+
       def header_bytes
         @bytes[0..3]
       end
