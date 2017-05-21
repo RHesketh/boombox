@@ -24,14 +24,15 @@ module Boombox
 
             if frame.invalid?
               frame.clear_bytes
+              buffer.advance_marker
             end
           end
 
           unless buffer.eof?
             buffer.reset_position
             frame << buffer.read(frame.byte_length)
-            buffer.advance_marker
             frames << frame
+            buffer.advance_marker
           end
         end
 
