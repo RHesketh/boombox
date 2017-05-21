@@ -20,19 +20,21 @@ Now use it in your code:
 ```ruby
 require "boombox"
 
-server = Boombox::Server.new("stream.mp3")                # Listen on the url http://example.com/stream.mp3
-server = Boombox::Server.new("stream.mp3", 7777)          # Listen on the url and port http://example.com:7777/stream.mp3
+# Listen on the url http://example.com/stream.mp3
+server = Boombox::Server.new("stream.mp3")
 
-server.start                                              # Start the server in a new thread and return
+# Start the server in a new thread and return
+server.start
 
-server.play("path_to_mp3_file.mp3")                       # Play an MP3 file to all listeners
-server.play("mp3_file_folder/")                           # Play all MP3 files in a folder to all listeners
-server.play("mp3_file_folder/", loop: true)               # Play all MP3 files in a folder, looping continuously
-server.play("mp3_file_folder/", shuffle: true)            # Play all MP3 files in a folder in a random order
+# Play an MP3 file to all listeners
+server.play("path_to_mp3_file.mp3")
+
+# Play a folder full of MP3s at random
+server.play("folder_of_mp3s/", shuffle: true)
 ```
 
 ## Documentation
-Project documentation can be found [here](#).
+More information about Boombox's options can be found in the documentation, [here](#).
 
 ## Tests
 The plugin has unit and integration tests. To run them:
