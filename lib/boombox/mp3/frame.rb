@@ -1,4 +1,5 @@
 require_relative 'frame/header'
+require_relative 'frame/validation'
 
 module Boombox
   module MP3
@@ -14,7 +15,7 @@ module Boombox
       end
 
       def invalid?
-        return true if Header.invalid?(@bytes[0..3])
+        return true if Validation.invalid?(@bytes[0..3])
         return false
       end
 

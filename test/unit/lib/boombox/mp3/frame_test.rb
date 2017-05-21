@@ -48,7 +48,7 @@ module Boombox
           context "Valid frames" do
             context "When the FrameHeader is valid" do
               it "returns false" do
-                Frame::Header.expects(:invalid?).returns(false)
+                Frame::Validation.expects(:invalid?).returns(false)
                 frame = Frame.new
 
                 assert_equal false, frame.invalid?
@@ -59,7 +59,7 @@ module Boombox
           context "Invalid frames" do
             context "When the FrameHeader is not valid" do
               it "returns true" do
-                Frame::Header.expects(:invalid?).returns(true)
+                Frame::Validation.expects(:invalid?).returns(true)
                 frame = Frame.new
 
                 assert_equal true, frame.invalid?
