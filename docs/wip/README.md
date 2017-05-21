@@ -1,4 +1,4 @@
-12q# Boombox
+# Boombox
 [![Gem Version](https://badge.fury.io/rb/boombox.svg)](https://badge.fury.io/rb/boombox) [![Test Coverage](https://codeclimate.com/github/RHesketh/boombox/badges/coverage.svg)](https://codeclimate.com/github/RHesketh/boombox/coverage) [![License Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/UNLICENSE)
 
 An incredibly tiny Shoutcast server that can be embedded into Ruby applications. It has been designed with an emphasis on keeping listeners in synch with each other, so as to maximise the shared experience.
@@ -21,9 +21,9 @@ Now use it in your code:
 require "boombox"
 
 server = Boombox.new(7777)                        # Use port 7777
-server.start                                      # Start the server
+server.start                                      # Start the server in a new thread and return
 server.play("path_to_mp3_file.mp3")               # Play an MP3 file to all listeners
-server.play("mp3_file_folder/")                   # Play all MP3 files in a folder
+server.play("mp3_file_folder/")                   # Play all MP3 files in a folder to all listeners
 server.play("mp3_file_folder/", loop: true)       # Play all MP3 files in a folder, looping continuously
 server.play("mp3_file_folder/", shuffle: true)    # Play all MP3 files in a folder in a random order
 ```
