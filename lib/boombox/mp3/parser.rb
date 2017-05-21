@@ -29,7 +29,8 @@ module Boombox
           end
 
           unless buffer.eof?
-            frame << buffer.read(frame.bytes.length)
+            buffer.reset_position
+            frame << buffer.read(frame.byte_length)
             buffer.advance_marker
             frames << frame
           end
