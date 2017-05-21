@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-spec", "~> 0.0.2"
   spec.add_development_dependency "minitest-reporters"
+  spec.add_development_dependency "mocha", "~> 1.2.1"
 end
