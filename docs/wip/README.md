@@ -1,5 +1,5 @@
 # Boombox
-[![Gem Version](https://badge.fury.io/rb/lucio-mp3.svg)](https://badge.fury.io/rb/lucio-mp3) [![Test Coverage](https://codeclimate.com/github/RHesketh/cinch-uno/badges/coverage.svg)](https://codeclimate.com/github/RHesketh/lucio-mp3/coverage) [![License Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/UNLICENSE)
+[![Gem Version](https://badge.fury.io/rb/boombox.svg)](https://badge.fury.io/rb/boombox) [![Test Coverage](https://codeclimate.com/github/RHesketh/boombox/badges/coverage.svg)](https://codeclimate.com/github/RHesketh/boombox/coverage) [![License Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/UNLICENSE)
 
 An incredibly tiny Shoutcast server that can be embedded into Ruby applications. It has been designed with an emphasis on keeping listeners in synch with each other, so as to maximise the shared experience.
 

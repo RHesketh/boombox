@@ -1,6 +1,6 @@
 require "./test/test_helper"
 
-module Lucio
+module Boombox
   describe "File Handling" do
     context "Valid files" do
       it "128kbps CBR MP3" do

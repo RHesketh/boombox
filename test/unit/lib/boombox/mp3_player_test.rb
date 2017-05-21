@@ -1,6 +1,6 @@
 require "./test/test_helper"
 
-module Lucio
+module Boombox
   describe MP3Player do
     describe "MP3Player.new(mp3_file)" do
       it "Returns without error" do
