@@ -14,6 +14,10 @@ module Boombox
           @stream.read(number_of_bytes).bytes
         end
 
+        def skip(number_of_bytes=1)
+          @stream.pos = @stream.pos + number_of_bytes
+        end
+
         def advance_marker
           @frame_marker = @stream.pos
         end

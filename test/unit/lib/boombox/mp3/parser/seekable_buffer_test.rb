@@ -90,6 +90,20 @@ module Boombox
           end
         end
 
+
+        describe "#skip(number_of_bytes=1)" do
+          before do
+            file = StringIO.new("ABCDE")
+            @buffer = Parser::SeekableBuffer.new(file)
+          end
+
+          it "Advances the buffer position by the amount specified" do
+            old_pos = @buffer.pos
+            @buffer.skip 2
+            assert_equal @buffer.pos, old_pos + 2
+          end
+        end
+
         describe "#reset" do
           before do
             file = StringIO.new("ABCDE")
