@@ -80,6 +80,18 @@ module Boombox
           end
         end
 
+        describe "#byte_length" do
+          before do
+            @frame = Frame.new
+          end
+
+          it "Uses Frame::Header to find the byte length" do
+            Frame::Header.expects(:frame_length_in_bytes).with(@frame.bytes).returns(777)
+
+            assert_equal 777, @frame.byte_length
+          end
+        end
+
         describe "#clear_bytes" do
           before do
             @frame = Frame.new
