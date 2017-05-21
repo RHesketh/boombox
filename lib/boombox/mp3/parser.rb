@@ -23,7 +23,6 @@ module Boombox
             frame << buffer.read
 
             if frame.invalid?
-              buffer.reset_position
               frame.clear_bytes
             end
           end
