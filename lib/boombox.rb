@@ -1,1 +1,2 @@
-require_relative 'boombox/mp3_player'
+require_relative 'boombox/version'
+require_relative 'boombox/mp3/player'
