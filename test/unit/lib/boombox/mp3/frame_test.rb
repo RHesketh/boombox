@@ -68,6 +68,18 @@ module Boombox
           end
         end
 
+        describe "#header_bytes" do
+          before do
+            bytes = [1,2,3,4,5]
+            @frame = Frame.new
+            @frame << bytes
+          end
+
+          it "Returns the bytes that make up the frame header" do
+            assert_equal [1,2,3,4], @frame.header_bytes
+          end
+        end
+
         describe "#clear_bytes" do
           before do
             @frame = Frame.new

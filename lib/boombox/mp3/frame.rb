@@ -15,13 +15,17 @@ module Boombox
       end
 
       def invalid?
-        return true if Validation.invalid?(@bytes[0..3])
+        return true if Validation.invalid?(header_bytes)
         return false
       end
 
       def header_complete?
         return true if @bytes.length > 3
         return false
+      end
+
+      def header_bytes
+        @bytes[0..3]
       end
 
       def clear_bytes
