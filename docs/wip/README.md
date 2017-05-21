@@ -20,12 +20,15 @@ Now use it in your code:
 ```ruby
 require "boombox"
 
-server = Boombox.new(7777)                        # Use port 7777
-server.start                                      # Start the server in a new thread and return
-server.play("path_to_mp3_file.mp3")               # Play an MP3 file to all listeners
-server.play("mp3_file_folder/")                   # Play all MP3 files in a folder to all listeners
-server.play("mp3_file_folder/", loop: true)       # Play all MP3 files in a folder, looping continuously
-server.play("mp3_file_folder/", shuffle: true)    # Play all MP3 files in a folder in a random order
+server = Boombox::Server.new("stream.mp3")                # Listen on the url http://example.com/stream.mp3
+server = Boombox::Server.new("stream.mp3", 7777)          # Listen on the url and port http://example.com:7777/stream.mp3
+
+server.start                                              # Start the server in a new thread and return
+
+server.play("path_to_mp3_file.mp3")                       # Play an MP3 file to all listeners
+server.play("mp3_file_folder/")                           # Play all MP3 files in a folder to all listeners
+server.play("mp3_file_folder/", loop: true)               # Play all MP3 files in a folder, looping continuously
+server.play("mp3_file_folder/", shuffle: true)            # Play all MP3 files in a folder in a random order
 ```
 
 ## Documentation
