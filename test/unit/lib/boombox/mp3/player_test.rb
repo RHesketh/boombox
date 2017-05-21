@@ -15,9 +15,7 @@ module Boombox
 
       describe "#start" do
         it "Returns without an error" do
-          refute_raises do
-            skip
-          end
+          skip
         end
       end
 

@@ -10,9 +10,14 @@ module Boombox
       end
 
       describe "Public Methods" do
-        describe "#bit_rate"
-        describe "#sample_rate"
-        describe "#frames"
+        describe "#bit_rate" do
+        end
+
+        describe "#sample_rate" do
+        end
+        
+        describe "#frames" do
+        end
       end
     end
   end

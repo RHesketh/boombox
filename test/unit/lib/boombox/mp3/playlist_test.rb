@@ -4,7 +4,7 @@ module Boombox
   module MP3
     describe Playlist do
 
-      describe "Public Methods"
+      describe "Public Methods" do
         describe "#add(mp3_file)" do
           it "Adds an MP3 file to the playlist" do
             skip
@@ -25,7 +25,7 @@ module Boombox
       end
 
       describe "Public Attributes" do
-        describe "songs"
+        describe "songs" do
           it "Returns the array of songs that are on the playlist" do
             skip
 
